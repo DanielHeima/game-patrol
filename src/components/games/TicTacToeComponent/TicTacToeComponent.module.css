@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0 auto;
+  flex-direction: column;
+  background: var(--secondary-glow);
+  padding: 1em;
+}
+
+.board {
+  margin-top: 1em;
+  display: grid;
+  gap: 0.1em;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cell {
+  background: var(--primary-glow);
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4em;
+  font-weight: 700;
+}
+
+.title {
+  
+}
+
+.x {
+  color: rgb(185, 20, 255);
+  text-shadow: rgb(0, 79, 48) 1px 0 10px;
+}
+
+.o {
+  color: red;
+  text-shadow: rgb(253, 46, 136) 1px 0 10px;
+
+}
+
+.button {
+  border-radius: 1px;
+  border-color: var(--foreground-rgb);
+  
+}
+
+.winning {
+  background-color: rgb(32, 161, 73);
+}
