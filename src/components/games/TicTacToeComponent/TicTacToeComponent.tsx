@@ -6,7 +6,7 @@ type TicTacToeComponentProps = {
 
 }
 
-type Board = [CellState,CellState,CellState,CellState,CellState,CellState,CellState,CellState,CellState,]
+type Board = [CellState, CellState, CellState, CellState, CellState, CellState, CellState, CellState, CellState,]
 
 type TicTacToeBoardProps = {
   board: Board;
@@ -16,7 +16,7 @@ type TicTacToeBoardProps = {
 
 type CellProps = {
   state: CellState;
-  cellIdx: number; 
+  cellIdx: number;
   onCellClicked: (cellIdx: number) => void;
   winningCells: Array<number>
 }
@@ -31,26 +31,23 @@ type GameState = {
   winningCells: [number, number, number] | []
 }
 
-const originalGameState: GameState = {
-  board: ['', '', '', '', '', '', '', '', ''],
-  turn: 'X',
-  gameOver: false,
-  tie: false,
-  winningCells: []
-  // stig?
+
+const getNewGameState = (): GameState => {
+  const originalGameState: GameState = {
+    board: ['', '', '', '', '', '', '', '', ''],
+    turn: 'X',
+    gameOver: false,
+    tie: false,
+    winningCells: []
+  }
+
+  return originalGameState;
 }
 
 
 
 const TicTacToeComponent: React.FC = (props: TicTacToeComponentProps) => {
-  // const [board, setBoard] = useState<Array<CellState>>(['', '', '', '', '', '', '', '', '']);
-  // const [turn, setTurn] = useState<'X' | 'O'>('X');
-  // const [gameOver, setGameOver] = useState(false);
-  // const [tie, setTie] = useState(false);
-  // const [winningCells, setWinningCells] = useState<Array<number>>([]);
-
-  const [gameState, setGameState] = useState(originalGameState)
-
+  const [gameState, setGameState] = useState(getNewGameState())
 
   const onCellClicked = (cellIdx: number): void => {
     if (gameState.gameOver) {
@@ -69,31 +66,13 @@ const TicTacToeComponent: React.FC = (props: TicTacToeComponentProps) => {
       if (prevState.turn === 'X') {
         newTurn = 'O';
       }
-      
-      return checkState({...prevState, board: newBoard, turn: newTurn});
+
+      return checkState({ ...prevState, board: newBoard, turn: newTurn });
     });
-
-
-    // if (turn === 'X') {
-    //   newBoard[cellIdx] = 'X';
-    //   setGameState({
-
-    //   })
-    //   setBoard(newBoard);
-    //   checkState();
-    //   setTurn('O');
-    // }
-    // if (turn === 'O') {
-    //   newBoard[cellIdx] = 'O';
-    //   setBoard(newBoard);
-    //   checkState();
-    //   setTurn('X');
-    // }
-
   }
 
   const resetGame = () => {
-    setGameState(originalGameState);
+    setGameState(getNewGameState());
   }
 
   const checkState = (state: GameState): GameState => {
@@ -146,14 +125,14 @@ const TicTacToeComponent: React.FC = (props: TicTacToeComponentProps) => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Tic Tac Toe</h1>
-      <TikTacToeBoard winningCells={gameState.winningCells} onCellClicked={onCellClicked} board={gameState.board} />
-      {gameState.gameOver && 
-      <div>Game over... {gameState.tie ? "It's a tie!" : ""}<button onClick={() => resetGame()}>Play again?</button></div>}
+      <TicTacToeBoard winningCells={gameState.winningCells} onCellClicked={onCellClicked} board={gameState.board} />
+      {gameState.gameOver &&
+        <div>Game over... {gameState.tie ? "It's a tie!" : ""}<button onClick={() => resetGame()}>Play again?</button></div>}
     </div>
   );
 };
 
-function TikTacToeBoard(props: TicTacToeBoardProps) {
+function TicTacToeBoard(props: TicTacToeBoardProps) {
 
   return (
     <div>

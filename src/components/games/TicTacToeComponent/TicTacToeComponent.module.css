@@ -27,27 +27,39 @@
   font-weight: 700;
 }
 
-.title {
-  
-}
+.title {}
 
 .x {
-  color: rgb(251, 72, 245);
-  text-shadow: rgba(255, 0, 174, 0.3) 1px 0 10px;
+  color: rgb(0, 0, 0);
+  text-shadow: rgba(40, 0, 0, 0.3) 1px 0 10px;
 }
 
 .o {
-  color: rgb(66, 173, 255);
+  color: rgb(49, 66, 255);
   text-shadow: rgb(46, 49, 253) 1px 0 10px;
+}
+
+.winning {
+  background-color: rgb(0, 214, 7);
+}
+
+@media (prefers-color-scheme: dark) {
+  .x {
+    color: rgb(251, 72, 245);
+    text-shadow: rgba(255, 0, 174, 0.3) 1px 0 10px;
+  }
+
+  .o {
+    color: rgb(66, 173, 255);
+    text-shadow: rgb(46, 49, 253) 1px 0 10px;
+  }
+  .winning {
+    background-color: rgba(0, 0, 0, 0.6); 
+  }
 }
 
 .button {
   border-radius: 1px;
   border-color: var(--foreground-rgb);
-  
-}
 
-.winning {
-  background-color: rgba(0,0,0,0.4);
-  
 }
