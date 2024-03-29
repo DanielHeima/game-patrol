@@ -4,3 +4,7 @@ export interface GameInfo {
   image: string;
   favorite?: boolean;
 }
+
+export type GameComponentMap = {
+  [key: string]: () => React.JSX.Element
+}
