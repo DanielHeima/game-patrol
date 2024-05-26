@@ -123,12 +123,14 @@ const TicTacToeComponent: React.FC = (props: TicTacToeComponentProps) => {
   }
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Tic Tac Toe</h1>
-      <TicTacToeBoard winningCells={gameState.winningCells} onCellClicked={onCellClicked} board={gameState.board} />
+    <>
+      <div className={styles.container}>
+        <h1 className={styles.title}>Tic Tac Toe</h1>
+        <TicTacToeBoard winningCells={gameState.winningCells} onCellClicked={onCellClicked} board={gameState.board} />
+      </div>
       {gameState.gameOver &&
-        <div>Game over... {gameState.tie ? "It's a tie!" : ""}<button onClick={() => resetGame()}>Play again?</button></div>}
-    </div>
+        <div className={styles.gameOver}>Game over... {gameState.tie ? "It's a tie! " : ""}<button className={styles.playAgainButton} onClick={() => resetGame()}>Play again?</button></div>}
+    </>
   );
 };
 

@@ -8,7 +8,7 @@ export default function Home() {
   // TODO fetch game info from db
   const gameInfoArr: Array<GameInfo> = [{
     id: "1",
-    title: "Tik Tac Toe",
+    title: "Tic Tac Toe",
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Tic_tac_toe.svg/1024px-Tic_tac_toe.svg.png",
   },
   {
